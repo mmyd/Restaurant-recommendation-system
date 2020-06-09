@@ -1,0 +1,22 @@
+Method Description:
+The weighted hybrid recommendation systems:
+Model-based CF recommendation system + Item-based CF recommendation system
+For model-based CF system, I build the recommendation model using Alternating Least Squares using Spark MLlib; Grid-cv find the optimal parameters for the model;
+For item-based CF system, I first use MinHash and Jaccard based LSH algorithms to find candidate similar item pairs. If they have estimated jaccard similarity which is larger than the threshold, then we choose the items be in neighborhood and calculate the weight(Pearson correlation) between 2 items. I apply some transform to weights which emphasizes high weights and punishes low weights. 
+
+Error Distribution:
+>=0 and <1: 100349
+>=1 and <2: 34210
+>=2 and <3: 6651
+>=3 and <4: 834
+>=4: 0
+
+RMSE:
+0.99970
+
+Execution Time:
+80.48234510421753s
+
+
+
+
